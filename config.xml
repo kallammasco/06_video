@@ -20,6 +20,7 @@
 
     <preference name="permissions" value="none" />
 
+    <plugin name="cordova-plugin-camera" />
     <plugin name="cordova-plugin-media-capture" />
 
 </widget>
