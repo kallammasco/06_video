@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <title>Do Something 1 - PhoneGap Demo</title>
+
+    <link rel="stylesheet" href="screen.css" type="text/css" media="screen" title="no title" charset="utf-8">
+
+    <script src="phonegap.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+        window.onload = function () {
+            var myButton = document.getElementById('myButton');
+            myButton.addEventListener('click', capturePhoto, false);
+        };
+
+        function captureVideo(e) {
+            e.preventDefault();
+            try{
+                var options = {
+                    limit: 1 // Max number of videos to capture
+                };
+                /*
+                Other useful options
+                --------------------
+                * duration: The maximum duration of a video clip, in seconds.
+                For more info:
+                    https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-media-capture/
+                */
+                navigator.device.capture.captureVideo(onSuccess, onFail, options);
+            }catch (error){
+                console.log('capture api not available');
+            }
+        }
+
+        function onSuccess(theMediaFiles) {
+            var video = document.getElementById('myVideo');
+            video.innerHTML = '<video src="'+theMediaFiles[0].fullPath+'" controls></video>';
+        }
+
+        function onFail(error) {
+            alert('Call to captureVideo failed with error code: ' + error.code);
+        }
+    </script>
+
+</head>
+<body>
+    <p>
+        <a href="#" class="button" id="myButton">Capture Video</a>
+    </p>
+    <p>
+        <img id="myVideo" src="" />
+    </p>
+</body>
+</html>

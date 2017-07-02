@@ -1,0 +1,31 @@
+*{
+    font-size: x-large;
+}
+body{
+    background: #DDDDDD;
+    font-family: "MS Trebuchet", sans-serif;
+    text-align: center;
+    text-shadow: #fff 0 1px 1px;
+}
+em{
+    font-style: normal;
+    text-transform: uppercase;
+}
+button{
+    padding: 10%;
+}
+a#myButton {
+    background-color: darkred;
+    background: radial-gradient(whitesmoke, darkgray);
+    color: black;
+    border-radius: 10px;
+    padding: 10px;
+    text-decoration: none;
+}
+a#myButton:hover {
+    background: radial-gradient(darkgray, cornflowerblue);
+}
+
+img{
+    width: 50%;
+}
